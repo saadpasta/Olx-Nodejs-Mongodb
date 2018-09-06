@@ -1,0 +1,125 @@
+
+
+@font-face {
+  font-family: newfont;
+  src: url(font.woff2);
+}
+
+*{
+
+  font-family: newfont;
+  box-sizing: border-box;
+
+}
+
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../../fonts/glyphicons-halflings-regular.eot');
+  src: url('../../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+
+
+
+.logo{
+  width:130px;
+  margin:auto;
+}
+
+.Navbarlogo{
+  width:50px;
+}
+
+
+
+.allAds{
+
+    display: inline;
+}
+
+/* .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 10px;
+} */
+
+.card:hover {
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.card{
+
+  margin: 5px;
+  border-radius: 10px;
+}
+
+
+
+.card-title {
+  margin-top:0px;
+  font-weight: 700;
+  font-size: 1.65em;
+}
+
+
+#card-price{
+
+  color: #ff8300;
+}
+
+.IndexTitle{
+  color: #ff8300;
+}
+
+.IndexTitle2{
+  color: #5B2B82;
+ }
+
+.IndexButton{
+  background-color: #BFBE00
+}
+
+.searchTab {
+
+  border: 3px solid white;
+  border-radius: 50px;
+  width: 400px;
+  height: 40px;
+  padding-right: 10px;
+  margin-bottom: 50px;
+  box-shadow: 0px 3px 12px -5px black;
+}
+
+
+
+.searchTab img {
+  height: 30px;
+  float: right;
+  margin-top: 2px;
+}
+
+.searchTab input {
+  background-color: transparent;
+  width: 200px;
+  height: 30px;
+  font-size: 24px;
+  float: left;
+  padding-left: 20px;
+}
+
+
+.searchTab input:focus {
+  outline:none;
+}
+
+
+#searchImg:hover{
+
+  cursor: pointer;
+}

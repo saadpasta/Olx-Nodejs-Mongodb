@@ -1,0 +1,64 @@
+<div class="card card-body">
+  <h3>Submit An Add</h3>
+  <form action="/ideas" method="post">
+    <div class="form-group col-md-12">
+      <label for="title">Ad-Title</label>
+      <input type="text" class="form-control" name="title" required>
+    </div>
+
+    <div class="form-group col-md-12">
+      <label for="Category">Category</label>
+      <select id="Category" class="form-control" required="" name="Category">
+        <option selected="" value="">Select Category</option>
+        <option value="Mobiles">Mobiles</option>
+        <option value="Cars">Cars</option>
+        <option value="Bikes">Bikes</option>
+        <option value="Furniture">Furniture</option>
+        <option value="Kids">Kids</option>
+        <option value="Animals">Animals</option>
+
+      </select> </div>
+
+    <div class="form-group col-md-12">
+      <label for="AdDescription">Ad Description</label>
+      <textarea class="form-control" placeholder="Include the brand, model, age and any included accessories." id="AdDescription"
+        required name="AdDescription"></textarea>
+    </div>
+    <div class="form-group col-md-12 ">
+      <div class="form-group ">
+        <label for="Image">Upload Photos</label>
+        <input type="file" class="form-control-file" id="Image"  name="Image">
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" id="price" required name="price">
+      </div>
+
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" id="Name" required name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="Number">Number</label>
+        <input type="number" class="form-control" id="Number" required name="number">
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <select id="city" class="form-control" required="" name="city">
+          <option selected="" value="">Choose City</option>
+          <option value="Karachi">Karachi</option>
+          <option value="Lahore">Lahore</option>
+          <option value="Islamabad">Islamabad</option>
+        </select>
+        <p>
+
+          By clicking 'Submit' you confirm that you have carefully read and understood all the facts, statements and conditions stated
+          in the Terms of Use Posting Rules of our website to which you unconditionally agree and accept as true and correct
+          and constituting a binding agreement between us.
+        </p>
+        <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
