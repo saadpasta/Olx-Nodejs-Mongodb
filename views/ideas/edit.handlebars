@@ -1,21 +1,87 @@
-{{#each errors}}
-  <div class="alert alert-danger">{{text}}</div>
-{{else}}
-
-{{/each}}
-
 <div class="card card-body">
-  <h3>Edit Video Idea</h3>
-  <form action="/ideas/{{idea.id}}?_method=PUT" method="post">
+  <h3>Edit Your Add</h3>
+  <form action="/ideas/{{add.id}}?_method=PUT" method="post">
     <input type="hidden" name="_method" value="PUT">
     <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" class="form-control" name="title" value="{{idea.title}}" required>
+      <label for="title">Ad-Title</label>
+      <input type="text" class="form-control" name="title" required value="{{add.title}}">
+    </div>
+
+    <div class="form-group">
+      <label for="Category">Category</label>
+      <select id="Category" class="form-control" required="" name="Category">
+        <option selected="" value="">Select Category</option>
+        <option value="Mobiles">Mobiles</option>
+        <option value="Cars">Cars</option>
+        <option value="Bikes">Bikes</option>
+        <option value="Furniture">Furniture</option>
+        <option value="Kids">Kids</option>
+        <option value="Animals">Animals</option>
+
+      </select> </div>
+
+    <div class="form-group">
+      <label for="AdDescription">Ad Description</label>
+      <textarea class="form-control" placeholder="Include the brand, model, age and any included accessories." id="AdDescription"
+        required name="AdDescription">{{add.AdDescription}}</textarea>
     </div>
     <div class="form-group">
-      <label for="details">Details</label>
-      <textarea class="form-control" name="details" required>{{idea.details}}</textarea>
+      <label for="Image">Image:</label>
+      <input type="file" class="form-control" onchange="encodeImageFileAsURL(this)" required value="{{add.image}}" />
+      <input id="imag" type="hidden" class="form-control" name="image" value="{{add.image}}">
+      <img id="img" src="" class="img-responsive" width="70">
     </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" class="form-control" id="price" required name="price" value="{{add.price}}">
+    </div>
+
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input type="text" class="form-control" id="Name" required name="name" value="{{add.name}}">
+    </div>
+
+    <div class="form-group">
+      <label for="Number">Number</label>
+      <input type="number" class="form-control" id="Number" required name="number" value="{{add.number}}">
+    </div>
+
+    <div class="form-group">
+      <label for="city">City</label>
+      <select id="city" class="form-control" required="" name="city" value="{{add.city}}"> 
+        <option selected="" value="">Choose City</option>
+        <option value="Karachi">Karachi</option>
+        <option value="Lahore">Lahore</option>
+        <option value="Islamabad">Islamabad</option>
+      </select>
+    </div>
+    <hr>
+    <p>
+
+      By clicking 'Submit' you confirm that you have carefully read and understood all the facts, statements and conditions stated
+      in the Terms of Use Posting Rules of our website to which you unconditionally agree and accept as true and correct
+      and constituting a binding agreement between us.
+    </p>
+    <hr>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous"></script>
+<script>
+  function encodeImageFileAsURL(element) {
+    var file = element.files[0];
+    var reader = new FileReader();
+    reader.onloadend = function () {
+      console.log('RESULT', reader.result);
+      document.getElementById('img').setAttribute('src', reader.result);
+      document.getElementById('imag').value = reader.result;
+    }
+    reader.readAsDataURL(file);
+  }
+
+</script>

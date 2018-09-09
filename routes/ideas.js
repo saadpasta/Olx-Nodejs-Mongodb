@@ -19,6 +19,9 @@ router.get('/',ensureAuth,   (req, res) => {
     });
 });
 
+
+
+
 // Add Idea Form
 router.get('/add',ensureAuth, (req, res) => {
   res.render('ideas/add');
@@ -29,8 +32,8 @@ router.get('/edit/:id', (req, res) => {
   Adds.findOne({
     _id: req.params.id
   })
-  .then(idea => {
-    if(idea.user != req.user.id){
+  .then(add => {
+    if(add.user != req.user.id){
 
       req.flash('error_msg' , 'Not Authorised')
       res.redirect('/ideas')
@@ -38,7 +41,7 @@ router.get('/edit/:id', (req, res) => {
     }
     else{
     res.render('ideas/edit', {
-      idea:idea
+      add:add
     });
   }
   });
@@ -90,6 +93,7 @@ router.post('/', ensureAuth,(req, res) => {
       title: req.body.title,
       Category:req.body.Category,
       AdDescription: req.body.AdDescription,
+      image:req.body.image,
       price:req.body.price,
       name:req.body.name,
       number:req.body.number,
@@ -99,7 +103,7 @@ router.post('/', ensureAuth,(req, res) => {
     new Adds(newAdd)
       .save()
       .then(add => {
-        req.flash('success_msg', 'Video idea added');
+        req.flash('success_msg', 'You are Add Has Been Posted');
         res.redirect('/ideas');
       })
   }
@@ -110,41 +114,33 @@ router.put('/:id', ensureAuth,(req, res) => {
   Adds.findOne({
     _id: req.params.id
   })
-  .then(idea => {
+  .then(add => {
     // new values
-    idea.title = req.body.title;
-    idea.details = req.body.details;
-
-    idea.save()
+    add.title= req.body.title,
+    add.Category=req.body.Category,
+    add.AdDescription= req.body.AdDescription,
+    add.image=req.body.image,
+    add.price=req.body.price,
+    add.name=req.body.name,
+    add.number=req.body.number,
+    add.city=req.body.city,
+    add.user=req.user.id
+    add.save()
       .then(idea => {
-        req.flash('success_msg', 'Video idea updated');
+        req.flash('success_msg', 'Your Add Has Been Updated');
         res.redirect('/ideas');
       })
   });
 });
 //show Adds 
-// Show Add View Route
 
 
-router.get('../addView/:id', (req, res) => {
-  Adds.findOne({
-    _id: req.params.id
-  })
-  .then(adds => {
 
-      res.render('addView', {
-        adds:adds
-      }).catch(console.log(err))
-    
-    
-  });
-
-});
 // Delete Idea
 router.delete('/:id', ensureAuth,(req, res) => {
   Adds.remove({_id: req.params.id})
     .then(() => {
-      req.flash('success_msg', 'Your Add Has Been Deleted');
+      req.flash('error_msg', 'You Add Has Been Deleted');
       res.redirect('/ideas');
     });
 });

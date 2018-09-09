@@ -6,7 +6,7 @@
         {{adds.Category}}
     </div>
 
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="{{adds.image}}" alt="Card image cap">
     <div class="card-body">
         <h1 class="card-title">{{adds.title}}</h1>
         <p class="card-text">Seller: {{adds.name}}</p>
@@ -14,8 +14,10 @@
         <h3 class="card-text" id="card-price">Rs: {{adds.price}}</h3>
 
         <h3 class="card-text">{{adds.AdDescription}}<h3>
-        <h3 class="card-text"> Call: {{adds.number}}</h3>
         <h3 class="card-text"> {{adds.city}}</h3>
+        <a href="{{adds.number}}" class="btn btn-info">Call :{{adds.number}}</a>
+        
+
 
 
 

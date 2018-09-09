@@ -1,12 +1,12 @@
 <div class="card card-body">
-  <h3>Submit An Add</h3>
+  <h3>Submit Add</h3>
   <form action="/ideas" method="post">
-    <div class="form-group col-md-12">
+    <div class="form-group">
       <label for="title">Ad-Title</label>
       <input type="text" class="form-control" name="title" required>
     </div>
 
-    <div class="form-group col-md-12">
+    <div class="form-group">
       <label for="Category">Category</label>
       <select id="Category" class="form-control" required="" name="Category">
         <option selected="" value="">Select Category</option>
@@ -19,16 +19,17 @@
 
       </select> </div>
 
-    <div class="form-group col-md-12">
+    <div class="form-group">
       <label for="AdDescription">Ad Description</label>
       <textarea class="form-control" placeholder="Include the brand, model, age and any included accessories." id="AdDescription"
         required name="AdDescription"></textarea>
     </div>
-    <div class="form-group col-md-12 ">
-      <div class="form-group ">
-        <label for="Image">Upload Photos</label>
-        <input type="file" class="form-control-file" id="Image"  name="Image">
-      </div>
+        <div class="form-group">
+            <label for="Image">Image:</label>
+            <input type="file" class="form-control" onchange="encodeImageFileAsURL(this)" required/>
+            <input id="imag" type="hidden" class="form-control" name="image" >
+            <img id="img" src="" class="img-responsive" width="70">
+        </div>
 
       <div class="form-group">
         <label for="price">Price</label>
@@ -53,12 +54,32 @@
           <option value="Lahore">Lahore</option>
           <option value="Islamabad">Islamabad</option>
         </select>
+        </div>
+        <hr>
         <p>
 
           By clicking 'Submit' you confirm that you have carefully read and understood all the facts, statements and conditions stated
           in the Terms of Use Posting Rules of our website to which you unconditionally agree and accept as true and correct
           and constituting a binding agreement between us.
         </p>
+        <hr>
         <button type="submit" class="btn btn-primary">Submit</button>
   </form>
   </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ <script>
+       function encodeImageFileAsURL(element) {
+  var file = element.files[0];
+  var reader = new FileReader();
+  reader.onloadend = function() {
+    console.log('RESULT', reader.result);
+    document.getElementById('img').setAttribute('src', reader.result);
+    document.getElementById('imag').value = reader.result;
+  }
+  reader.readAsDataURL(file);
+}
+
+    </script>

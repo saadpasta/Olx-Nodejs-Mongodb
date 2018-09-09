@@ -1,0 +1,26 @@
+<div class="jumbotron text-center">
+    <h1>Favorites</h1>
+</div>
+
+
+{{#each adds}}
+<div class="allAds d-inline-block">
+  <div class="card cardLayout" style="width: 18rem" ; "border-radius: 15px">
+    <img class="card-img-top" src="{{adds.image}}">
+    <div class="card-body">
+      <h3 class="card-title" id="card-title">{{adds.title}}</h3>
+      <h4 class="card-text" id="card-text"><span class="glyphicon glyphicon-map-marker"></span>Location:{{city}}</h4>
+      <h3 class="card-text" id="card-price">Rs {{adds.price}}</h3>
+    <a class="btn btn-primary btn-block mb-2" href="/addView/{{id}}">BUY</a>
+
+    </div>
+  </div>
+</div>
+{{else}}
+
+
+<p>No video ideas listed</p>
+{{/each}}
+
+
+

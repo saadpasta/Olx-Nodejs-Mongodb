@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Create Schema
-const AddSchema = new Schema({
+const FavoriteSchema = new Schema({
   title:{
     type: String,
     required: true
@@ -52,4 +52,4 @@ const AddSchema = new Schema({
   }
 });
 
-mongoose.model('adds', AddSchema);
+mongoose.model('Favorite', FavoriteSchema);

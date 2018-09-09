@@ -7,7 +7,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const mongoose = require('mongoose');
-var icons = require('glyphicons')
+const { ensureAuth } = require('./helpers/auth')
 
 
 const app = express();
@@ -69,6 +69,12 @@ app.use(function (req, res, next) {
 require('./models/Idea');
 const Adds = mongoose.model('adds');
 
+// Favorite Model
+require('./models/favorite');
+const Favorite = mongoose.model('Favorite');
+
+
+
 // Index Route
 app.get('/', (req, res) => {
   Adds.find()
@@ -87,19 +93,23 @@ app.get('/addView/:id', (req, res) => {
   Adds.findOne({
     _id: req.params.id
   })
-  .then(adds => {
+    .then(adds => {
 
       res.render('addView', {
-        adds:adds
-      }).catch(console.log(err))
-    
-    
-  });
+        adds: adds
+      })
+
+
+    });
 });
 
 
 
 
+// Favorite Route
+app.get('/favorite', (req, res) => {
+  res.render('favorite');
+});
 
 // About Route
 app.get('/about', (req, res) => {
@@ -107,12 +117,40 @@ app.get('/about', (req, res) => {
 });
 
 
+
+
+// Catogries Route
+app.get('/catagories/:catagorey', (req, res) => {
+
+  Adds.find({
+    Category: req.params.catagorey
+  }).then(adds=>{
+
+    res.render('catagories', {
+      adds:adds
+    });
+  
+
+
+  })
+  
+});
+
+
+ 
+
+
+
+
+
 // Use routes
 app.use('/ideas', ideas);
 app.use('/users', users);
 
-const port = process.env.PORT || 5000;
-
+const port = 5000;
 app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
-});
+
+  console.log(`Server Ho Gaye Start ${port}`)
+
+})
+
