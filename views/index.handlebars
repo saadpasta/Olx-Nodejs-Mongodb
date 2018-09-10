@@ -1,65 +1,64 @@
-  <div class="jumbotron text-center">
-    <a href="/ideas/add" class="btn btn-info btn-lg IndexButton ">Submit Your Ad</a>
-  </div>
-  <hr>
+<div class="jumbotron text-center">
+  <a href="/ideas/add" class="btn btn-info btn-lg IndexButton ">Submit Your Ad</a>
+</div>
+<hr>
 <div class="categories" id="catogries">
-          <div id="collapseExample" >
-              <div>
-                  <ul class="catogriesRow">
+  <div id="collapseExample">
+    <div>
+      <ul class="catogriesRow">
 
-                          <li>
-                                <a href="/"><img src="/img/logo.png" alt=""></a>All Ads
-                          </li>
-      
-                      <li>
-                          <a href="catagories/Bikes"><img src="/img/bike.png" alt=""></a>Bikes
-                      </li>
-                      <li >
-                          <a href="catagories/Cars"><img src="/img/car.png" alt=""></a>Cars
-                      </li>
-                      <li>
-                              <a href="catagories/Mobiles"><img src="/img/mobile.jpg" alt=""></a>Mobiles
-                      </li>
-                      <li>
-                              <a href="catagories/Furniture"><img src="/img/furniture.png" alt=""></a>Furniture
-                      </li>
-                      <li>
-                              <a href="catagories/Animals"><img src="/img/animals.png" alt=""></a>Animals
-                      </li>
-                      <li>
-                              <a href="catagories/Kids"><img src="/img/images.png" alt=""></a>Kids
-                      </li>
-                  </ul>
-      
-              </div>
-      
-          </div>
-      
-      </div>
-  
+        <li>
+          <a href="/"><img src="/img/logo.png" alt=""></a>All Ads
+        </li>
 
-    <hr>
+        <li>
+          <a href="catagories/Bikes"><img src="/img/bike.png" alt=""></a>Bikes
+        </li>
+        <li>
+          <a href="catagories/Cars"><img src="/img/car.png" alt=""></a>Cars
+        </li>
+        <li>
+          <a href="catagories/Mobiles"><img src="/img/mobile.jpg" alt=""></a>Mobiles
+        </li>
+        <li>
+          <a href="catagories/Furniture"><img src="/img/furniture.png" alt=""></a>Furniture
+        </li>
+        <li>
+          <a href="catagories/Animals"><img src="/img/animals.png" alt=""></a>Animals
+        </li>
+        <li>
+          <a href="catagories/Kids"><img src="/img/images.png" alt=""></a>Kids
+        </li>
+      </ul>
 
-  {{#each ideas}}
-  <div class="allAds d-inline-block">
-    <div class="card cardLayout" style="width: 18rem" ; "border-radius: 15px">
-      <img class="card-img-top" src="{{image}}">
-      <div class="card-body">
-        <h3 class="card-title" id="card-title">{{title}}</h3>
-        <h4 class="card-text" id="card-text"><span class="glyphicon glyphicon-map-marker"></span>Location:{{city}}</h4>
-        <h3 class="card-text" id="card-price">Rs {{price}}</h3>
+    </div>
+
+  </div>
+
+</div>
+
+
+<hr>
+
+{{#each ideas}}
+<div class="allAds d-inline-block">
+  <div class="card cardLayout" style="width: 18rem" ; "border-radius: 15px">
+      <div class="card-header text-center">{{Category}}</div>
+
+    <img class="card-img-top" src="{{image}}">
+    <div class="card-body">
+      <h3 class="card-title" id="card-title">{{title}}</h3>
+      <h4 class="card-text" id="card-text"><span class="glyphicon glyphicon-map-marker"></span>Location:{{city}}</h4>
+      <h3 class="card-text" id="card-price">Rs {{price}}</h3>
 
       <a class="btn btn-primary btn-block mb-2" href="/addView/{{id}}">BUY</a>
       <a class="btn btn-danger btn-block mb-2" href="/favorite">Add To Fav</a>
 
-      </div>
     </div>
   </div>
-  {{else}}
+</div>
+{{else}}
 
 
-  <p>No video ideas listed</p>
-  {{/each}}
-
-
-
+<p>No video ideas listed</p>
+{{/each}}

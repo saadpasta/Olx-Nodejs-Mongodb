@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const { ensureAuth } = require('./helpers/auth')
 
 
+
 const app = express();
 
 // Load routes
@@ -22,7 +23,7 @@ require('./config/passport')(passport);
 // Map global promise - get rid of warning
 mongoose.Promise = global.Promise;
 // Connect to mongoose
-mongoose.connect('mongodb://localhost/vidjot-dev', {
+mongoose.connect('mongodb://saadpasta:saad1234@ds145752.mlab.com:45752/olx', {
   useMongoClient: true
 })
   .then(() => console.log('MongoDB Connected...'))
@@ -124,20 +125,20 @@ app.get('/catagories/:catagorey', (req, res) => {
 
   Adds.find({
     Category: req.params.catagorey
-  }).then(adds=>{
+  }).then(adds => {
 
     res.render('catagories', {
-      adds:adds
+      adds: adds
     });
-  
+
 
 
   })
-  
+
 });
 
 
- 
+
 
 
 
@@ -147,7 +148,7 @@ app.get('/catagories/:catagorey', (req, res) => {
 app.use('/ideas', ideas);
 app.use('/users', users);
 
-const port = 5000;
+const port = process.env.PORT ||5000;
 app.listen(port, () => {
 
   console.log(`Server Ho Gaye Start ${port}`)
