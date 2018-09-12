@@ -13,6 +13,9 @@ const { ensureAuth } = require('./helpers/auth')
 
 const app = express();
 
+app.use(bodyParser.json({limit: '10mb', extended: true}))
+app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
+
 // Load routes
 const ideas = require('./routes/ideas');
 const users = require('./routes/users');
