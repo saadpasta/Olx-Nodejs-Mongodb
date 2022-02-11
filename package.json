@@ -13,7 +13,7 @@
     "body-parser": "^1.18.1",
     "connect-flash": "^0.1.1",
     "express": "^4.15.4",
-    "express-handlebars": "^3.0.0",
+    "express-handlebars": "^5.3.1",
     "express-session": "^1.15.5",
     "glyphicons": "^0.2.0",
     "method-override": "^2.3.9",
