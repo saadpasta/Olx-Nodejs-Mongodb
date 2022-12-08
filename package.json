@@ -12,7 +12,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.1",
     "connect-flash": "^0.1.1",
-    "express": "^4.15.4",
+    "express": "^4.17.3",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.5",
     "glyphicons": "^0.2.0",
