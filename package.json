@@ -17,7 +17,7 @@
     "express-session": "^1.15.5",
     "glyphicons": "^0.2.0",
     "method-override": "^2.3.9",
-    "mongoose": "^4.11.12",
+    "mongoose": "^5.13.15",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
   }
